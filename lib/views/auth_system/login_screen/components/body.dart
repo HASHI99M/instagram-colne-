@@ -1,9 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:instagram/serves/authentication_by_firebase.dart';
 
 import 'custom_button_login.dart';
 import 'custom_textfield_login.dart';
 import 'login_facebook_button.dart';
-
 
 class Body extends StatefulWidget {
   @override
@@ -12,7 +13,7 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool showPassword = true;
-  String val1, val2;
+  String valEmail, valPassword;
   bool valuesEmpty = true;
 
   @override
@@ -23,13 +24,18 @@ class _BodyState extends State<Body> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset('assets/icons/logo.png', width: 200,height: 100,fit: BoxFit.contain,),
+          Image.asset(
+            'assets/icons/logo.png',
+            width: 200,
+            height: 100,
+            fit: BoxFit.contain,
+          ),
           CustomTextFieldLogin(
             hint: 'Phone number , email or username',
             onChanged: (value) {
               setState(() {
-                val1 = value;
-                if (val2.isEmpty || val1.isEmpty) {
+                valEmail = value;
+                if (valPassword.isEmpty || valEmail.isEmpty) {
                   valuesEmpty = true;
                 } else {
                   valuesEmpty = false;
@@ -37,7 +43,9 @@ class _BodyState extends State<Body> {
               });
             },
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           CustomTextFieldLogin(
             hint: 'Password',
             isPassword: true,
@@ -51,8 +59,8 @@ class _BodyState extends State<Body> {
             },
             onChanged: (value) {
               setState(() {
-                val2 = value;
-                if (val2.isEmpty || val1.isEmpty) {
+                valPassword = value;
+                if (valPassword.isEmpty || valEmail.isEmpty) {
                   valuesEmpty = true;
                 } else {
                   valuesEmpty = false;
@@ -60,44 +68,60 @@ class _BodyState extends State<Body> {
               });
             },
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           CustomButtonLogin(
             text: 'Log In',
-            onClick: (){
-
-            },
+            onClick: onClickLogin,
             valuesEmpty: valuesEmpty,
           ),
-          SizedBox(height: 20,),
-          RichText(text: TextSpan(
-              text: 'Forget Your login details ? ',
-            style: TextStyle(color: Colors.grey[600]),
-            children: [
-              TextSpan(text: 'Get help logging in.' , style: TextStyle(color: Colors.blueGrey))
-            ]
-          )),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
+          RichText(
+              text: TextSpan(
+                  text: 'Forget Your login details ? ',
+                  style: TextStyle(color: Colors.grey[600]),
+                  children: [
+                TextSpan(
+                    text: 'Get help logging in.',
+                    style: TextStyle(color: Colors.blueGrey))
+              ])),
+          SizedBox(
+            height: 20,
+          ),
           Row(
             children: [
-              Expanded(child: Divider(color: Colors.grey,)),
+              Expanded(
+                  child: Divider(
+                color: Colors.grey,
+              )),
               Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 10),
+                padding: EdgeInsets.symmetric(horizontal: 10),
                 child: Text('OR'),
               ),
-              Expanded(child: Divider(color: Colors.grey,)),
+              Expanded(
+                  child: Divider(
+                color: Colors.grey,
+              )),
             ],
           ),
-          SizedBox(height: 20,),
-          LoginFacebookButton(onClick: (){},)
+          SizedBox(
+            height: 20,
+          ),
+          LoginFacebookButton(
+            onClick: () {},
+          )
         ],
       ),
     );
   }
+
+  void onClickLogin() {
+    AuthenticationByFirebase authenticationByFirebase = AuthenticationByFirebase();
+    authenticationByFirebase.signIn(null, (e){
+      print(e.toString());
+    } , username: 'Hashim' , phone: '0599652314' , password: valPassword , email: valEmail );
+  }
 }
-
-
-
-
-
-
-

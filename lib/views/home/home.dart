@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String _currentPage = "Page1";
-  List<String> pageKeys = ["Page1", "Page2", "Page3" ,"Page4" , "Page5" ];
+  List<String> pageKeys = ["Page1", "Page2", "Page3", "Page4", "Page5"];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
     "Page1": GlobalKey<NavigatorState>(),
     "Page2": GlobalKey<NavigatorState>(),
@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
     return WillPopScope(
       onWillPop: () async {
         final isFirstRouteInCurrentTab =
-        !await _navigatorKeys[_currentPage].currentState.maybePop();
+            !await _navigatorKeys[_currentPage].currentState.maybePop();
         if (isFirstRouteInCurrentTab) {
           if (_currentPage != "Page1") {
             _selectTab("Page1", 1);
@@ -47,26 +47,28 @@ class _HomeState extends State<Home> {
         return isFirstRouteInCurrentTab;
       },
       child: Scaffold(
-        body: Stack(
-            children:<Widget>[
-              _buildOffstageNavigator("Page1"),
-              _buildOffstageNavigator("Page2"),
-              _buildOffstageNavigator("Page3"),
-              _buildOffstageNavigator("Page4"),
-              _buildOffstageNavigator("Page5"),
-            ]
-        ),
+        body: Stack(children: <Widget>[
+          _buildOffstageNavigator("Page1"),
+          _buildOffstageNavigator("Page2"),
+          _buildOffstageNavigator("Page3"),
+          _buildOffstageNavigator("Page4"),
+          _buildOffstageNavigator("Page5"),
+        ]),
         bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Colors.black,
-          onTap: (int index) { _selectTab(pageKeys[index], index); },
+          onTap: (int index) {
+            _selectTab(pageKeys[index], index);
+          },
           currentIndex: _selectedIndex,
           items: [
             BottomNavigationBarItem(
               icon: new Icon(Icons.home_filled),
+              // ignore: deprecated_member_use
               title: new Text('Home'),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.search),
+              // ignore: deprecated_member_use
               title: new Text('Search'),
             ),
             BottomNavigationBarItem(
@@ -75,14 +77,17 @@ class _HomeState extends State<Home> {
                 height: 24,
                 width: 24,
               ),
+              // ignore: deprecated_member_use
               title: new Text(''),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.favorite_border),
+              // ignore: deprecated_member_use
               title: new Text('Favorite'),
             ),
             BottomNavigationBarItem(
               icon: new Icon(Icons.person),
+              // ignore: deprecated_member_use
               title: new Text('Profile'),
             ),
           ],
@@ -101,5 +106,4 @@ class _HomeState extends State<Home> {
       ),
     );
   }
-
 }
