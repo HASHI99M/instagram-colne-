@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/services/app_locale.dart';
 import 'package:instagram/views/profile_screen/components/photo_profile_card.dart';
 class InformationProfile extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class InformationProfile extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text(
-                          'Posts',
+                          AppLocale.of(context).getTranslated('posts'),
                           style: TextStyle(fontSize: 16),
                         )
                       ],
@@ -41,7 +42,7 @@ class InformationProfile extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text(
-                          'Followers',
+                          AppLocale.of(context).getTranslated('followers'),
                           style: TextStyle(fontSize: 16),
                         )
                       ],
@@ -55,7 +56,7 @@ class InformationProfile extends StatelessWidget {
                               fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         Text(
-                          'Following',
+                          AppLocale.of(context).getTranslated('following'),
                           style: TextStyle(fontSize: 16),
                         )
                       ],
@@ -72,7 +73,7 @@ class InformationProfile extends StatelessWidget {
               width: double.infinity,
               child: OutlineButton(
                 onPressed: () {},
-                child: Text('Edit Profile'),
+                child: Text(AppLocale.of(context).getTranslated('edit_profile'),),
                 highlightedBorderColor: Colors.grey,
               ))
         ],

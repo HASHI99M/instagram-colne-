@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:instagram/serves/authentication.dart';
+import 'package:instagram/services/authentication.dart';
 import '../const.dart';
 
 class AuthenticationByFirebase extends Authentication {
