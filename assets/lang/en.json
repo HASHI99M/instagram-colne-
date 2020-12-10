@@ -18,6 +18,7 @@
   "change_profile_photo": "Change Profile Photo",
   "name": "Name",
   "username": "Username",
+  "website": "Website",
   "bie": "Bie",
   "switch_btn": "Switch to Professional Account",
   "pro_btn": "Personal Information Settings",
@@ -30,5 +31,7 @@
   "camera": "Camera",
   "posts": "Posts",
   "followers": "Followers",
-  "following": "Following"
+  "following": "Following",
+  "search": "Search",
+  "select_lang" : "SELECT YOUR LANGUAGE"
 }

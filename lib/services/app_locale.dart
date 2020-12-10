@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 class AppLocale {
   Locale locale;
   Map<String, String> _loadedLocalizedValues;
-
+  static String langCode;
   AppLocale({this.locale});
 
   static AppLocale of(BuildContext context) {
@@ -15,6 +15,7 @@ class AppLocale {
   }
 
   Future loadLang() async {
+    langCode = locale.languageCode;
     String _langFile =
         await rootBundle.loadString('assets/lang/${locale.languageCode}.json');
     Map<String, dynamic> loadedValues = jsonDecode(_langFile);

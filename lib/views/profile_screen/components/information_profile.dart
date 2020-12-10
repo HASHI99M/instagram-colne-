@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/services/app_locale.dart';
+import 'package:instagram/views/edit_profile_screen/edit_profile_screen.dart';
 import 'package:instagram/views/profile_screen/components/photo_profile_card.dart';
 class InformationProfile extends StatelessWidget {
   @override
@@ -72,7 +73,9 @@ class InformationProfile extends StatelessWidget {
           SizedBox(
               width: double.infinity,
               child: OutlineButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfile(),));
+                },
                 child: Text(AppLocale.of(context).getTranslated('edit_profile'),),
                 highlightedBorderColor: Colors.grey,
               ))

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/message_screen/components/body.dart';
 
 
@@ -14,7 +15,7 @@ class MessageScreen extends StatelessWidget {
             onPressed: () {},
             child: SvgPicture.asset('assets/icons/ic_arrow_back.svg')),
         title: Text(
-          'Direct',
+          getTranslated(context, 'direct'),
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -48,7 +49,7 @@ class MessageScreen extends StatelessWidget {
               width: 10,
             ),
             Text(
-              'Camera',
+              getTranslated(context, 'camera'),
               style: TextStyle(
                   color: Colors.blueAccent, fontWeight: FontWeight.bold),
             )

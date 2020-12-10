@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/message_screen/components/search_message.dart';
 
 import 'message_card.dart';
@@ -28,7 +29,7 @@ class _BodyState extends State<Body> {
                     height: 20,
                   ),
                   Text(
-                    'Messages',
+                    getTranslated(context, 'messages'),
                     style:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
                   ),

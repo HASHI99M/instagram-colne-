@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/ultimate/helpers.dart';
 class YouStoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -35,7 +36,7 @@ class YouStoryCard extends StatelessWidget {
             height: 7,
           ),
           Text(
-            'Your story',
+            getTranslated(context, 'your_story'),
           )
         ],
       ),

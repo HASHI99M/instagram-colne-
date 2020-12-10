@@ -26,7 +26,8 @@ dependencies:
   firebase_core:
   cloud_firestore:
   firebase_auth:
-
+  shared_preferences:
+  provider:
   flutter:
     sdk: flutter
   flutter_localizations:

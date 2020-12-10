@@ -1,17 +1,31 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:instagram/provider/lang.dart';
 import 'package:instagram/services/app_locale.dart';
 import 'package:instagram/theme.dart';
-import 'package:instagram/views/profile_screen/profile_screen.dart';
+import 'package:instagram/views/auth_system/register_screen/register_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  String langCode = preferences.get('lang');
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider<Lang>(create: (context) => Lang())],
+    child: MyApp(
+      langCode: langCode,
+    ),
+  ));
 }
 
 class MyApp extends StatelessWidget {
+  final String langCode;
+
+  const MyApp({Key key, this.langCode}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -24,7 +38,9 @@ class MyApp extends StatelessWidget {
         Locale('ar', ''),
         Locale('en', ''),
       ],
-      locale: Locale('en'),
+      locale: langCode == null && context.watch<Lang>().langCode == null
+          ? null
+          : Locale(context.watch<Lang>().langCode ?? langCode),
       localeResolutionCallback: (locale, supportedLocales) {
         if (locale != null) {
           for (Locale locale2 in supportedLocales) {
@@ -36,7 +52,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: ProfileScreen(),
+      home: RegisterScreen(),
     );
   }
 }

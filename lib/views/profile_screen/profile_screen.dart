@@ -4,6 +4,7 @@ import 'package:instagram/size_config.dart';
 import 'package:instagram/views/profile_screen/components/body.dart';
 
 class ProfileScreen extends StatefulWidget {
+
   @override
   _ProfileScreenState createState() => _ProfileScreenState();
 }

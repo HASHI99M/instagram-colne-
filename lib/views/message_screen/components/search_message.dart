@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/ultimate/helpers.dart';
 class SearchMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class SearchMessage extends StatelessWidget {
         children: [
           Icon(Icons.search , color: Colors.grey,size: 30,),
           SizedBox(width: 7,),
-          Text('Search' , style: TextStyle(fontSize: 16 , color: Colors.grey),)
+          Text(getTranslated(context, 'search') , style: TextStyle(fontSize: 16 , color: Colors.grey),)
         ],
       ),
     );

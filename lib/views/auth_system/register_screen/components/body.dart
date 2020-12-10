@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/login_screen/components/custom_button_login.dart';
 import 'package:instagram/views/auth_system/register_screen/components/textfield_register.dart';
 
@@ -72,7 +73,7 @@ class _BodyState extends State<Body> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Text('PHONE',
+                    child: Text(getTranslated(context, 'phone'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -103,7 +104,7 @@ class _BodyState extends State<Body> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: 16),
-                    child: Text('EMAIL',
+                    child: Text(getTranslated(context, 'email'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 15,
@@ -130,7 +131,7 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         TextFieldRegister(
-          hint: 'Email',
+          hint: getTranslated(context, 'email'),
           controller: emailController,
           textInputType: TextInputType.text,
           onClick: () {
@@ -153,7 +154,7 @@ class _BodyState extends State<Body> {
           height: 20,
         ),
         CustomButtonLogin(
-          text: 'Next',
+          text: getTranslated(context, 'next'),
           onClick: () {},
           valuesEmpty: valueEmptyEmail,
         )
@@ -165,7 +166,7 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         TextFieldRegister(
-          hint: 'Phone',
+          hint: getTranslated(context, 'phone'),
           controller: phoneController,
           textInputType: TextInputType.phone,
           onClick: () {
@@ -188,7 +189,7 @@ class _BodyState extends State<Body> {
           height: 10,
         ),
         Text(
-          'You may receive SMS updates from Instagram and can opt out any time',
+          getTranslated(context, 'helper_txt'),
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.grey),
         ),
@@ -196,7 +197,7 @@ class _BodyState extends State<Body> {
           height: 15,
         ),
         CustomButtonLogin(
-          text: 'Next',
+          text: getTranslated(context, 'next'),
           onClick: () {},
           valuesEmpty: valueEmptyPhone,
         )

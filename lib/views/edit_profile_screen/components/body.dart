@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/components/custom_button.dart';
 import 'package:instagram/views/components/custom_textfailed.dart';
 
@@ -28,7 +29,7 @@ class _BodyState extends State<Body> {
               height: 14,
             ),
             Text(
-              'Change Profile Photo',
+                getTranslated(context, 'change_profile_photo'),
               style: TextStyle(fontSize: 18, color: Colors.blueAccent),
             ),
             SizedBox(
@@ -39,29 +40,29 @@ class _BodyState extends State<Body> {
               child: Column(
                 children: [
                   CustomTextFailed(
-                    hintText: 'Name',
-                    labelText: 'Name',
+                    hintText: getTranslated(context, 'name'),
+                    labelText: getTranslated(context, 'name'),
                   ),
                   SizedBox(
                     height: 7,
                   ),
                   CustomTextFailed(
-                    hintText: 'Username',
-                    labelText: 'Username',
+                    hintText: getTranslated(context, 'username'),
+                    labelText: getTranslated(context, 'username'),
                   ),
                   SizedBox(
                     height: 7,
                   ),
                   CustomTextFailed(
-                    hintText: 'Website',
-                    labelText: 'Website',
+                    hintText: getTranslated(context, 'website'),
+                    labelText: getTranslated(context, 'website'),
                   ),
                   SizedBox(
                     height: 7,
                   ),
                   CustomTextFailed(
-                    hintText: 'Bio',
-                    labelText: 'Bio',
+                    hintText: getTranslated(context, 'bie'),
+                    labelText: getTranslated(context, 'bie'),
                     maxLine: 2,
                   ),
                 ],
@@ -73,7 +74,7 @@ class _BodyState extends State<Body> {
             CustomButton(
               onclick: () {},
               text: Text(
-                'Switch to Professional Account',
+                getTranslated(context, 'switch_btn'),
                 style: TextStyle(color: Colors.blueAccent, fontSize: 18),
               ),
             ),
@@ -83,7 +84,7 @@ class _BodyState extends State<Body> {
             CustomButton(
               onclick: () {},
               text: Text(
-                'Personal Information Settings',
+                getTranslated(context, 'pro_btn'),
                 style: TextStyle(color: Colors.blueAccent, fontSize: 18),
               ),
             )

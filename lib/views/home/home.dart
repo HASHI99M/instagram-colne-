@@ -9,6 +9,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   String _currentPage = "Page1";
   List<String> pageKeys = ["Page1", "Page2", "Page3", "Page4", "Page5"];
   Map<String, GlobalKey<NavigatorState>> _navigatorKeys = {
@@ -55,6 +56,7 @@ class _HomeState extends State<Home> {
           _buildOffstageNavigator("Page5"),
         ]),
         bottomNavigationBar: BottomNavigationBar(
+          elevation: 0,
           selectedItemColor: Colors.black,
           onTap: (int index) {
             _selectTab(pageKeys[index], index);

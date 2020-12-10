@@ -18,17 +18,20 @@
   "change_profile_photo": "تغير صورة الحساب",
   "name": "الاسم",
   "username": "اسم المستخدم",
+  "website": "موقعك الشخصي",
   "bie": "وصف",
   "switch_btn": "قم بالتبديل إلى الحساب المهني",
   "pro_btn": "إعدادات المعلومات الشخصية",
   "your_story": "قصتك",
   "others": "اخرين",
   "like_this": "معجبين بهذا",
-  "direct": "direct",
-  "messages": "الرسائل",
+  "direct": "Direct",
+  "messages": "الدردشات",
   "active": "نشط",
   "camera": "الكاميرا",
   "posts": "منشورات",
   "followers": "متابعون",
-  "following": "متابعين"
+  "following": "متابعين",
+  "search": "بحث",
+  "select_lang" : "اختر لغتك"
 }

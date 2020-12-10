@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:instagram/ultimate/helpers.dart';
 
 class PostCard extends StatelessWidget {
   final Function clickSetting,
@@ -155,13 +156,13 @@ class PostCard extends StatelessWidget {
                                 )
                               : TextSpan(),
                           TextSpan(
-                              text: 'others ',
+                              text: getTranslated(context, 'others'),
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black,
                                   fontSize: 16)),
                           TextSpan(
-                              text: 'liked this ',
+                              text:  ' '+ getTranslated(context, 'like_this'),
                               style:
                                   TextStyle(color: Colors.black, fontSize: 16)),
                         ]),

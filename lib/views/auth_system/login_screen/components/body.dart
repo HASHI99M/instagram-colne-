@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/services/authentication_by_firebase.dart';
+import 'package:instagram/ultimate/helpers.dart';
 
 import 'custom_button_login.dart';
 import 'custom_textfield_login.dart';
@@ -30,7 +31,7 @@ class _BodyState extends State<Body> {
             fit: BoxFit.contain,
           ),
           CustomTextFieldLogin(
-            hint: 'Phone number , email or username',
+            hint: getTranslated(context, 'hint_username'),
             onChanged: (value) {
               setState(() {
                 valEmail = value;
@@ -46,7 +47,7 @@ class _BodyState extends State<Body> {
             height: 20,
           ),
           CustomTextFieldLogin(
-            hint: 'Password',
+            hint: getTranslated(context, 'hint_password'),
             isPassword: true,
             showPassword: showPassword,
             onclickEye: () {
@@ -71,7 +72,7 @@ class _BodyState extends State<Body> {
             height: 20,
           ),
           CustomButtonLogin(
-            text: 'Log In',
+            text: getTranslated(context, 'btn_login'),
             onClick: onClickLogin,
             valuesEmpty: valuesEmpty,
           ),
@@ -79,12 +80,13 @@ class _BodyState extends State<Body> {
             height: 20,
           ),
           RichText(
+            textAlign: TextAlign.center,
               text: TextSpan(
-                  text: 'Forget Your login details ? ',
+                  text: getTranslated(context, 'text_helper1'),
                   style: TextStyle(color: Colors.grey[600]),
                   children: [
                 TextSpan(
-                    text: 'Get help logging in.',
+                    text: getTranslated(context, 'text_helper2'),
                     style: TextStyle(color: Colors.blueGrey))
               ])),
           SizedBox(
@@ -98,7 +100,7 @@ class _BodyState extends State<Body> {
               )),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text('OR'),
+                child: Text(getTranslated(context, 'or')),
               ),
               Expanded(
                   child: Divider(
