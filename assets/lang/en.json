@@ -33,5 +33,7 @@
   "followers": "Followers",
   "following": "Following",
   "search": "Search",
-  "select_lang" : "SELECT YOUR LANGUAGE"
+  "select_lang" : "SELECT YOUR LANGUAGE",
+  "facebook_btn" : "Register With Facebook" ,
+  "reg_phone_email" : "Register with Email Or Phone"
 }

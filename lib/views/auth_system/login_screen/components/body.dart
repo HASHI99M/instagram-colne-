@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/services/authentication_by_firebase.dart';
 import 'package:instagram/ultimate/helpers.dart';
+import 'package:instagram/views/components/or_widget.dart';
 
 import 'custom_button_login.dart';
 import 'custom_textfield_login.dart';
@@ -92,22 +93,7 @@ class _BodyState extends State<Body> {
           SizedBox(
             height: 20,
           ),
-          Row(
-            children: [
-              Expanded(
-                  child: Divider(
-                color: Colors.grey,
-              )),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
-                child: Text(getTranslated(context, 'or')),
-              ),
-              Expanded(
-                  child: Divider(
-                color: Colors.grey,
-              )),
-            ],
-          ),
+          OR(),
           SizedBox(
             height: 20,
           ),
@@ -126,3 +112,5 @@ class _BodyState extends State<Body> {
     } , username: 'Hashim' , phone: '0599652314' , password: valPassword , email: valEmail );
   }
 }
+
+

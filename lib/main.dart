@@ -4,7 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:instagram/provider/lang.dart';
 import 'package:instagram/services/app_locale.dart';
 import 'package:instagram/theme.dart';
-import 'package:instagram/views/auth_system/register_screen/register_screen.dart';
+import 'package:instagram/views/auth_system/register_home_screen/register_home_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: RegisterScreen(),
+      home: RegisterHomeScreen(),
     );
   }
 }

@@ -33,5 +33,7 @@
   "followers": "متابعون",
   "following": "متابعين",
   "search": "بحث",
-  "select_lang" : "اختر لغتك"
+  "select_lang" : "اختر لغتك",
+  "facebook_btn" : "التسجيل بواسطة الفيس بوك" ,
+  "reg_phone_email" : "التسجيل بالبريد الالكتروني او رقم الهاتف"
 }
