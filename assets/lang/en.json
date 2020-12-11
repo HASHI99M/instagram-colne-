@@ -50,5 +50,9 @@
   "add_birthday" : "Add Your Birthday",
   "note_birthday": "This wont\\'t be part of your public profile",
   "change_username": "CHANGE USERNAME",
-  "pick_username_note": "Pick username for you account . You can always change it later"
+  "pick_username_note": "Pick username for you account . You can always change it later",
+  "add_pro_photo": "Add Profile Photo",
+  "add_photo_note": "Add a profile photo so your friends know it\\'s you .",
+  "add_photo_btn": "Add a Photo",
+  "skip": "Skip"
 }
