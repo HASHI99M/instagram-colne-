@@ -35,5 +35,20 @@
   "search": "Search",
   "select_lang" : "SELECT YOUR LANGUAGE",
   "facebook_btn" : "Register With Facebook" ,
-  "reg_phone_email" : "Register with Email Or Phone"
+  "reg_phone_email" : "Register with Email Or Phone",
+  "enter_code" : "ENTER CONFIRMATION CODE",
+  "sent_to_code" : "Enter the confirmation code we sent to",
+  "conf_code":"Confirmation Code",
+  "name_and_password" : "NAME AND PASSWORD",
+  "full_name": "Full name",
+  "save_pass": "Save Password",
+  "continue_and_sync": "Continue and Sync Contacts",
+  "continue_without_sync": "Continue Without Syncing Contacts",
+  "note_text": "Your contacts will be periodically synced and stored on Instagram servers to help you and others find friends , and to help us provide a better services . To remove contacts , go to Setting and disconnect .",
+  "years_old": "Years Old",
+  "pick_birthday": "pick birthday",
+  "add_birthday" : "Add Your Birthday",
+  "note_birthday": "This wont\\'t be part of your public profile",
+  "change_username": "CHANGE USERNAME",
+  "pick_username_note": "Pick username for you account . You can always change it later"
 }

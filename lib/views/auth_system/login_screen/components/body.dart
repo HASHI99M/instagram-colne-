@@ -3,8 +3,8 @@ import 'package:instagram/services/authentication_by_firebase.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/components/or_widget.dart';
 
-import 'custom_button_login.dart';
-import 'custom_textfield_login.dart';
+import '../../../components/custom_button_login.dart';
+import '../../../components/custom_textfield_login.dart';
 import 'login_facebook_button.dart';
 
 class Body extends StatefulWidget {

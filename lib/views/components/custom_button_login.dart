@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../../const.dart';
+import '../../const.dart';
 class CustomButtonLogin extends StatelessWidget {
   final bool valuesEmpty;
   final Function onClick;
   final String text;
-  const CustomButtonLogin({Key key, this.valuesEmpty = true, this.onClick, this.text}) : super(key: key);
+  const CustomButtonLogin({Key key, this.valuesEmpty = true, this.onClick, this.text = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class CustomButtonLogin extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.symmetric(vertical: 15),
         decoration: BoxDecoration(
-          color: valuesEmpty ? kPrimaryColor.withOpacity(.6) : kPrimaryColor,
+          color: valuesEmpty ?  Color(0xffb2dffc) : kPrimaryColor,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Text(

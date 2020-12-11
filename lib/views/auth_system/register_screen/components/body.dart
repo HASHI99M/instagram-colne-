@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/ultimate/helpers.dart';
-import 'package:instagram/views/auth_system/login_screen/components/custom_button_login.dart';
+import 'file:///C:/Users/HASHIM/AndroidStudioProjects/instagram/lib/views/components/custom_button_login.dart';
 import 'package:instagram/views/auth_system/register_screen/components/textfield_register.dart';
 
 import 'image_profile.dart';
