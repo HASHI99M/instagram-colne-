@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/ultimate/helpers.dart';
+import 'package:instagram/views/auth_system/register_input_code_screen/register_input_code_screen.dart';
 import 'file:///C:/Users/HASHIM/AndroidStudioProjects/instagram/lib/views/components/custom_button_login.dart';
 import 'package:instagram/views/auth_system/register_screen/components/textfield_register.dart';
 
@@ -12,10 +13,11 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool isPhone = true;
-  bool valueEmptyPhone = true;
-  bool valueEmptyEmail = true;
-  TextEditingController emailController;
-  TextEditingController phoneController;
+  bool disableBtnPhone = true;
+  bool disableBtnEmail = true;
+  bool validEmail = false;
+  TextEditingController emailController , phoneController;
+
 
   @override
   void initState() {
@@ -131,21 +133,25 @@ class _BodyState extends State<Body> {
     return Column(
       children: [
         TextFieldRegister(
+          error: validEmail,
+          errorMsg: getTranslated(context, 'email_valid'),
           hint: getTranslated(context, 'email'),
           controller: emailController,
           textInputType: TextInputType.text,
           onClick: () {
             emailController.clear();
             setState(() {
-              valueEmptyEmail = true;
+              disableBtnEmail = true;
+              validEmail = false;
             });
           },
           onChange: (value) {
             setState(() {
               if (value.toString().isNotEmpty) {
-                valueEmptyEmail = false;
+                disableBtnEmail = false;
               } else {
-                valueEmptyEmail = true;
+                disableBtnEmail = true;
+                validEmail = false;
               }
             });
           },
@@ -155,8 +161,9 @@ class _BodyState extends State<Body> {
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),
-          onClick: () {},
-          valuesEmpty: valueEmptyEmail,
+          onClick: _clickEmail,
+          disable: disableBtnPhone,
+          loading: true,
         )
       ],
     );
@@ -172,15 +179,15 @@ class _BodyState extends State<Body> {
           onClick: () {
             phoneController.clear();
             setState(() {
-              valueEmptyPhone = true;
+              disableBtnPhone = true;
             });
           },
           onChange: (value) {
             setState(() {
               if (value.toString().isNotEmpty) {
-                valueEmptyPhone = false;
+                disableBtnPhone = false;
               } else {
-                valueEmptyPhone = true;
+                disableBtnPhone = true;
               }
             });
           },
@@ -198,10 +205,22 @@ class _BodyState extends State<Body> {
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),
-          onClick: () {},
-          valuesEmpty: valueEmptyPhone,
+          onClick: _clickPhone,
+          disable:  disableBtnPhone,
         )
       ],
     );
   }
+
+  void _clickEmail(){
+    bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(emailController.text);
+    if(emailValid){
+      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterInputCodeScreen(emailOrPhone: isPhone ? phoneController.text : emailController.text),));
+    }else{
+      setState(() {
+        validEmail = !emailValid;
+      });
+    }
+  }
+ void _clickPhone(){}
 }

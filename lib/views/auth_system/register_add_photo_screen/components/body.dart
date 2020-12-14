@@ -18,12 +18,16 @@ class _BodyState extends State<Body> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(child: Camera()),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Text(
             getTranslated(context, 'add_pro_photo'),
             style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
@@ -32,15 +36,23 @@ class _BodyState extends State<Body> {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(height: 20,),
-          CustomButtonLogin(
-            valuesEmpty: false,
-            text: getTranslated(context, 'add_photo_btn'),
-            onClick: () {},
+          SizedBox(
+            height: 20,
           ),
-          SizedBox(height: 10,),
+          CustomButtonLogin(
+            disable: false ,
+            text: getTranslated(context, 'add_photo_btn'),
+            onClick: () {
+              customDialog(context);
+            },
+          ),
+          SizedBox(
+            height: 10,
+          ),
           FlatButton(
-              onPressed: () {},
+              onPressed: () {
+                addPhotoDialog(context);
+              },
               child: Text(
                 getTranslated(context, 'skip'),
                 style: TextStyle(color: kPrimaryColor),
@@ -49,6 +61,6 @@ class _BodyState extends State<Body> {
       ),
     );
   }
+
+
 }
-
-

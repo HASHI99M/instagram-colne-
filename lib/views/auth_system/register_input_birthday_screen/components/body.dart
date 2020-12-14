@@ -52,7 +52,7 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: CustomButtonLogin(
                 text: getTranslated(context, 'pick_birthday'),
-                valuesEmpty: false,
+                disable: false,
                 onClick: () {
                   pickBirthday(context);
                 },
@@ -65,7 +65,7 @@ class _BodyState extends State<Body> {
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: CustomButtonLogin(
                 text: getTranslated(context, 'next'),
-                valuesEmpty: !(yearsOld >= 9),
+                disable: !(yearsOld >= 9),
                 onClick: () {
 
                 },

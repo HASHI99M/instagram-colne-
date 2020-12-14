@@ -14,8 +14,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool showPassword = true;
-  String valEmail, valPassword;
-  bool valuesEmpty = true;
+  String valEmail , valPassword;
+  bool disableBtn = true;
 
   @override
   Widget build(BuildContext context) {
@@ -37,9 +37,9 @@ class _BodyState extends State<Body> {
               setState(() {
                 valEmail = value;
                 if (valPassword.isEmpty || valEmail.isEmpty) {
-                  valuesEmpty = true;
+                  disableBtn = true;
                 } else {
-                  valuesEmpty = false;
+                  disableBtn = false;
                 }
               });
             },
@@ -62,9 +62,9 @@ class _BodyState extends State<Body> {
               setState(() {
                 valPassword = value;
                 if (valPassword.isEmpty || valEmail.isEmpty) {
-                  valuesEmpty = true;
+                  disableBtn = true;
                 } else {
-                  valuesEmpty = false;
+                  disableBtn = false;
                 }
               });
             },
@@ -75,7 +75,7 @@ class _BodyState extends State<Body> {
           CustomButtonLogin(
             text: getTranslated(context, 'btn_login'),
             onClick: onClickLogin,
-            valuesEmpty: valuesEmpty,
+            disable: disableBtn,
           ),
           SizedBox(
             height: 20,

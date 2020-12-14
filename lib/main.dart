@@ -5,7 +5,8 @@ import 'package:instagram/provider/lang.dart';
 import 'package:instagram/services/app_locale.dart';
 import 'package:instagram/theme.dart';
 import 'package:instagram/views/auth_system/register_add_photo_screen/register_add_photo_screen.dart';
-import 'package:instagram/views/auth_system/register_change_username_screen/register_change_username_screen.dart';
+import 'package:instagram/views/auth_system/register_home_screen/register_home_screen.dart';
+import 'package:instagram/views/auth_system/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -53,7 +54,7 @@ class MyApp extends StatelessWidget {
       title: 'instagram_clone',
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: RegisterAddPhotoScreen(),
+      home: SplashScreen(),
     );
   }
 }

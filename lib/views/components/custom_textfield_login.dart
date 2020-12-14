@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 class CustomTextFieldLogin extends StatelessWidget {
   final String hint;
   final bool isPassword;
   final bool showPassword;
   final Function onclickEye, onChanged;
+  final TextEditingController controller;
   final TextInputType textInputType;
   const CustomTextFieldLogin(
       {Key key,
@@ -12,7 +14,7 @@ class CustomTextFieldLogin extends StatelessWidget {
         this.isPassword = false,
         this.showPassword = false,
         this.onclickEye,
-        this.onChanged, this.textInputType = TextInputType.text})
+        this.onChanged, this.textInputType = TextInputType.text, this.controller})
       : super(key: key);
 
   @override
@@ -27,6 +29,7 @@ class CustomTextFieldLogin extends StatelessWidget {
         children: [
           Expanded(
             child: TextField(
+              controller: controller,
               keyboardType: textInputType,
               onChanged: onChanged,
               obscureText: isPassword && showPassword,
@@ -41,11 +44,18 @@ class CustomTextFieldLogin extends StatelessWidget {
             ),
           ),
           isPassword
-              ? IconButton(
-              icon: showPassword
-                  ? Icon(Icons.remove_red_eye_sharp)
-                  : Icon(Icons.remove_moderator),
-              onPressed: onclickEye)
+              ? GestureDetector(
+            onTap: onclickEye,
+            child: showPassword
+                ? Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 14),
+                  child: SvgPicture.asset('assets/icons/ic_eye.svg' , width: 26,),
+                )
+                : Padding(
+                  padding:  EdgeInsets.symmetric(horizontal: 14),
+                  child: SvgPicture.asset('assets/icons/ic_eye_none.svg' , width: 26, color: Colors.grey,),
+                ),
+          )
               : Text('')
         ],
       ),

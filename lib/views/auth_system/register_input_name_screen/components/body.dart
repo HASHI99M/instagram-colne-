@@ -9,7 +9,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  bool savePass = false;
+  bool savePass = false , disableBtn = true;
+  String name , pass;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,36 +19,92 @@ class _BodyState extends State<Body> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(getTranslated(context, 'name_and_password') , style: TextStyle(fontWeight:FontWeight.bold , fontSize: 15 ),),
-          SizedBox(height: 20,),
-          CustomTextFieldLogin(hint: getTranslated(context, 'full_name'),),
-          SizedBox(height: 20,),
-          CustomTextFieldLogin(hint: getTranslated(context, 'hint_password'),isPassword: true , showPassword: true,textInputType: TextInputType.visiblePassword,),
-          SizedBox(height: 5,),
+          Text(
+            getTranslated(context, 'name_and_password'),
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CustomTextFieldLogin(
+            onChanged: (value){
+              setState(() {
+                name = value;
+                if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
+                  disableBtn =false;
+                }else{
+                  disableBtn = true;
+                }
+              });
+            },
+            hint: getTranslated(context, 'full_name'),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          CustomTextFieldLogin(
+            onChanged: (value){
+              setState(() {
+                pass = value;
+                if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
+                  disableBtn =false;
+                }else{
+                  disableBtn = true;
+                }
+              });
+
+            },
+            hint: getTranslated(context, 'hint_password'),
+            isPassword: true,
+            showPassword: true,
+            textInputType: TextInputType.visiblePassword,
+          ),
+          SizedBox(
+            height: 5,
+          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Checkbox(value: savePass, onChanged: (value) {
-                  setState(() {
-                    savePass = value;
-                  });
-                },materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,),
-                Text(getTranslated(context, 'save_pass') , style: TextStyle(color: Colors.grey),)
+                Checkbox(
+                  value: savePass,
+                  onChanged: (value) {
+                    setState(() {
+                      savePass = value;
+                    });
+                  },
+                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                ),
+                Text(
+                  getTranslated(context, 'save_pass'),
+                  style: TextStyle(color: Colors.grey),
+                )
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          SizedBox(
+            height: 5,
+          ),
           CustomButtonLogin(
             text: getTranslated(context, 'continue_and_sync'),
+            onClick: _clickSync,
+            disable: disableBtn,
           ),
-          SizedBox(height: 10,),
-          FlatButton(onPressed: () {
-
-          }, child: Text(getTranslated(context, 'continue_without_sync'), style: TextStyle(color: Colors.blue , fontWeight: FontWeight.bold),),)
-
+          SizedBox(
+            height: 10,
+          ),
+          FlatButton(
+            onPressed: _clickWithoutSync,
+            child: Text(
+              getTranslated(context, 'continue_without_sync'),
+              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            ),
+          )
         ],
       ),
     );
   }
+
+  _clickSync(){}
+  _clickWithoutSync(){}
 }

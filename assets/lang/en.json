@@ -54,5 +54,12 @@
   "add_pro_photo": "Add Profile Photo",
   "add_photo_note": "Add a profile photo so your friends know it\\'s you .",
   "add_photo_btn": "Add a Photo",
-  "skip": "Skip"
+  "skip": "Skip",
+  "take_photo": "Take Photo",
+  "choose_from_library":"Choose From Library",
+  "process_nearing": "The process is nearing completion",
+  "go_back": "Are you sure you want to go back?",
+  "back": "back",
+  "cancel": "cancel",
+  "email_valid": "Please enter a valid email"
 }

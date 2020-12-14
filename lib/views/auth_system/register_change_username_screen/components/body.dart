@@ -25,7 +25,7 @@ class _BodyState extends State<Body> {
           SizedBox(height: 20,),
           UsernameBox(),
           SizedBox(height: 20,),
-          CustomButtonLogin(onClick:(){},text: getTranslated(context, 'next'),valuesEmpty: false,)
+          CustomButtonLogin(onClick:(){},text: getTranslated(context, 'next'),disable: false,)
         ],
       ),
     );
