@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:instagram/provider/auth.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/register_input_birthday_screen/components/birthday_box.dart';
+import 'package:instagram/views/auth_system/register_welcome_screen/register_welcome_screen.dart';
 import 'package:instagram/views/components/custom_button_login.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -67,7 +70,8 @@ class _BodyState extends State<Body> {
                 text: getTranslated(context, 'next'),
                 disable: !(yearsOld >= 9),
                 onClick: () {
-
+                  Provider.of<Auth>(context , listen: false).setValues(birthday: birthday);
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterWelcomeScreen(),));
                 },
               ),
             )

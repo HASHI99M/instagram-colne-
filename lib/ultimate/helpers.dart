@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/services/app_locale.dart';
+import 'package:instagram/size_config.dart';
 
 String getTranslated(BuildContext context, String key) {
   return AppLocale.of(context).getTranslated(key);
@@ -11,13 +12,12 @@ customDialog(BuildContext context) {
     builder: (context) => Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
-        width: 200,
-        height: 250,
-        child: Column(
+        height: SizeConfig.defaultSize2*12,
+        child: LayoutBuilder(builder: (context, constraints) => Column(
           children: [
             Padding(
               padding:
-                  EdgeInsets.only(left: 20, right: 20, top: 30, bottom: 10),
+              EdgeInsets.only(left: constraints.maxWidth*.1, right: constraints.maxWidth*.1, top: constraints.maxHeight *.15, bottom: constraints.maxHeight *.1),
               child: Text(
                 getTranslated(context, 'process_nearing'),
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
@@ -29,7 +29,7 @@ customDialog(BuildContext context) {
               style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             SizedBox(
-              height: 20,
+              height: constraints.maxHeight*.06,
             ),
             Container(
               height: .8,
@@ -72,7 +72,7 @@ customDialog(BuildContext context) {
                       ))),
             ),
           ],
-        ),
+        ),),
       ),
     ),
   );
@@ -142,6 +142,48 @@ addPhotoDialog(BuildContext context,
             ),
           ],
         ),
+      ),
+    ),
+  );
+}
+
+alertErrorCode(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      child: Container(
+        height: SizeConfig.defaultSize * 15,
+        child: LayoutBuilder(
+            builder: (context, constraints) => Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: constraints.maxHeight * .15,
+                          horizontal: constraints.maxWidth * .20),
+                      child: Text(
+                        getTranslated(context, 'error_code'),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 20),
+                      ),
+                    ),
+                    Container(
+                      height: .4,
+                      color: Colors.grey,
+                    ),
+                    Expanded(
+                        child: SizedBox(
+                            width: double.infinity,
+                            child: FlatButton(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                        bottomRight: Radius.circular(15),
+                                        bottomLeft: Radius.circular(15))),
+                                onPressed: () => Navigator.pop(context),
+                                child: Text(getTranslated(context, 'ok') , style: TextStyle(color: Colors.blue),))))
+                  ],
+                )),
       ),
     ),
   );

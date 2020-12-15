@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/components/custom_button.dart';
-import 'package:instagram/views/components/custom_textfailed.dart';
+import 'package:instagram/views/components/custom_textfield.dart';
 
 import '../../../const.dart';
 class Body extends StatefulWidget {

@@ -11,6 +11,7 @@ class LoginScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
+        leading: Text(''),
         title: SwitchLangWidget(
         ),
       ),

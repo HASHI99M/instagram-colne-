@@ -5,7 +5,6 @@ class CustomButtonLogin extends StatelessWidget {
   final Function onClick;
   final String text;
   final bool loading , disable;
-
   const CustomButtonLogin(
       {Key key,
       this.disable = true,
@@ -32,7 +31,7 @@ class CustomButtonLogin extends StatelessWidget {
         ),
         child: loading
             ? SizedBox(
-                height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2,))
+                height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2))
             : Text(
                 text,
                 style: TextStyle(

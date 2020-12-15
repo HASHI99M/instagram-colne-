@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/provider/auth.dart';
 import 'package:instagram/ultimate/helpers.dart';
+import 'package:instagram/views/auth_system/register_input_birthday_screen/register_input_birthday_screen.dart';
 import 'package:instagram/views/components/custom_button_login.dart';
 import 'package:instagram/views/components/custom_textfield_login.dart';
+import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -52,8 +55,8 @@ class _BodyState extends State<Body> {
                   disableBtn = true;
                 }
               });
-
             },
+            showEye: false,
             hint: getTranslated(context, 'hint_password'),
             isPassword: true,
             showPassword: true,
@@ -94,7 +97,7 @@ class _BodyState extends State<Body> {
             height: 10,
           ),
           FlatButton(
-            onPressed: _clickWithoutSync,
+            onPressed: disableBtn ?  null : _clickWithoutSync,
             child: Text(
               getTranslated(context, 'continue_without_sync'),
               style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
@@ -105,6 +108,11 @@ class _BodyState extends State<Body> {
     );
   }
 
-  _clickSync(){}
-  _clickWithoutSync(){}
+  _clickSync(){
+    Provider.of<Auth>(context , listen: false).setValues(fullName: name , password: pass);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterInputBirthdayScreen(),));
+  }
+  _clickWithoutSync(){
+    
+  }
 }

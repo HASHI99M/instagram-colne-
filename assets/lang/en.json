@@ -61,5 +61,10 @@
   "go_back": "Are you sure you want to go back?",
   "back": "back",
   "cancel": "cancel",
-  "email_valid": "Please enter a valid email"
+  "email_valid": "Please enter a valid email",
+  "error_code": "This code is invalid. You can request a new code",
+  "ok" : "OK",
+  "welcome" : "welcome to INSTAGRAM.",
+  "welcome_note": "You can search for people to follow and start sharing photos. You can change your username at any time",
+  "welcome_note2":"By clicking on \"Next\", you agree to our terms, data policy and cookie policy"
 }

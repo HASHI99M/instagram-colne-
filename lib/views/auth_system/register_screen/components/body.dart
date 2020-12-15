@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:instagram/provider/auth.dart';
+import 'package:instagram/size_config.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/register_input_code_screen/register_input_code_screen.dart';
 import 'file:///C:/Users/HASHIM/AndroidStudioProjects/instagram/lib/views/components/custom_button_login.dart';
 import 'package:instagram/views/auth_system/register_screen/components/textfield_register.dart';
+import 'package:provider/provider.dart';
 
 import 'image_profile.dart';
 
@@ -12,12 +15,12 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  double defaultSize = SizeConfig.defaultSize;
   bool isPhone = true;
   bool disableBtnPhone = true;
   bool disableBtnEmail = true;
   bool validEmail = false;
-  TextEditingController emailController , phoneController;
-
+  TextEditingController emailController, phoneController;
 
   @override
   void initState() {
@@ -38,18 +41,18 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: defaultSize * 2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(child: ImageProfile()),
           SizedBox(
-            height: 20,
+            height: defaultSize * 2,
           ),
           switchTab(),
           SizedBox(
-            height: 15,
+            height: defaultSize * 1.5,
           ),
           isPhone ? contentPhone() : contentEmail()
         ],
@@ -74,7 +77,7 @@ class _BodyState extends State<Body> {
                 alignment: Alignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: defaultSize * 1.6),
                     child: Text(getTranslated(context, 'phone'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -105,7 +108,7 @@ class _BodyState extends State<Body> {
                 alignment: Alignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    padding: EdgeInsets.symmetric(vertical: defaultSize * 1.6),
                     child: Text(getTranslated(context, 'email'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -157,13 +160,12 @@ class _BodyState extends State<Body> {
           },
         ),
         SizedBox(
-          height: 20,
+          height: defaultSize * 2,
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),
           onClick: _clickEmail,
-          disable: disableBtnPhone,
-          loading: true,
+          disable: disableBtnEmail,
         )
       ],
     );
@@ -193,7 +195,7 @@ class _BodyState extends State<Body> {
           },
         ),
         SizedBox(
-          height: 10,
+          height: defaultSize,
         ),
         Text(
           getTranslated(context, 'helper_txt'),
@@ -201,26 +203,37 @@ class _BodyState extends State<Body> {
           style: TextStyle(color: Colors.grey),
         ),
         SizedBox(
-          height: 15,
+          height: defaultSize * 1.5,
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),
           onClick: _clickPhone,
-          disable:  disableBtnPhone,
+          disable: disableBtnPhone,
         )
       ],
     );
   }
 
-  void _clickEmail(){
-    bool emailValid = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(emailController.text);
-    if(emailValid){
-      Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterInputCodeScreen(emailOrPhone: isPhone ? phoneController.text : emailController.text),));
-    }else{
+  void _clickEmail() {
+    bool emailValid = RegExp(
+            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+        .hasMatch(emailController.text);
+    if (emailValid) {
+      Provider.of<Auth>(context , listen: false).setValues(
+          email: isPhone
+              ? phoneController.text.trim()
+              : emailController.text.trim());
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => RegisterInputCodeScreen(),
+          ));
+    } else {
       setState(() {
         validEmail = !emailValid;
       });
     }
   }
- void _clickPhone(){}
+
+  void _clickPhone() {}
 }

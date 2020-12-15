@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/services/authentication_by_firebase.dart';
+import 'package:instagram/size_config.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/components/or_widget.dart';
 
@@ -13,6 +14,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  double defaultSize = SizeConfig.defaultSize;
   bool showPassword = true;
   String valEmail , valPassword;
   bool disableBtn = true;
@@ -20,15 +22,15 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Image.asset(
             'assets/icons/logo.png',
-            width: 200,
-            height: 100,
+            width: defaultSize *20,
+            height: defaultSize *10,
             fit: BoxFit.contain,
           ),
           CustomTextFieldLogin(
@@ -45,7 +47,7 @@ class _BodyState extends State<Body> {
             },
           ),
           SizedBox(
-            height: 20,
+            height: defaultSize*2,
           ),
           CustomTextFieldLogin(
             hint: getTranslated(context, 'hint_password'),
@@ -70,7 +72,7 @@ class _BodyState extends State<Body> {
             },
           ),
           SizedBox(
-            height: 20,
+            height: defaultSize*2,
           ),
           CustomButtonLogin(
             text: getTranslated(context, 'btn_login'),
@@ -78,7 +80,7 @@ class _BodyState extends State<Body> {
             disable: disableBtn,
           ),
           SizedBox(
-            height: 20,
+            height: defaultSize*2,
           ),
           RichText(
             textAlign: TextAlign.center,
@@ -91,11 +93,11 @@ class _BodyState extends State<Body> {
                     style: TextStyle(color: Colors.blueGrey))
               ])),
           SizedBox(
-            height: 20,
+            height: defaultSize*2,
           ),
           OR(),
           SizedBox(
-            height: 20,
+            height: defaultSize*2,
           ),
           LoginFacebookButton(
             onClick: () {},

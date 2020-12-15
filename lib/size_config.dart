@@ -7,7 +7,7 @@ class SizeConfig {
   static double screenHeight;
   static double reallyScreenWidth;
   static double reallyScreenHeight;
-  static double defaultSize;
+  static double defaultSize  , defaultSize2;
   static double appBarSize;
   static double statusBarHeight;
   static Orientation orientation;
@@ -22,5 +22,6 @@ class SizeConfig {
     appBarSize = AppBar().preferredSize.height;
     statusBarHeight = _mediaQueryData.padding.top;
     defaultSize = orientation == Orientation.portrait ? screenWidth * .027777799 : screenHeight * .027777799;
+    defaultSize2 = screenHeight * .027777799;
   }
 }

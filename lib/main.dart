@@ -1,11 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:instagram/provider/auth.dart';
 import 'package:instagram/provider/lang.dart';
 import 'package:instagram/services/app_locale.dart';
 import 'package:instagram/theme.dart';
-import 'package:instagram/views/auth_system/register_add_photo_screen/register_add_photo_screen.dart';
-import 'package:instagram/views/auth_system/register_home_screen/register_home_screen.dart';
 import 'package:instagram/views/auth_system/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,7 +15,10 @@ void main() async {
   SharedPreferences preferences = await SharedPreferences.getInstance();
   String langCode = preferences.get('lang');
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider<Lang>(create: (context) => Lang())],
+    providers: [
+      ChangeNotifierProvider<Lang>(create: (context) => Lang()),
+      ChangeNotifierProvider<Auth>(create: (context) => Auth())
+    ],
     child: MyApp(
       langCode: langCode,
     ),

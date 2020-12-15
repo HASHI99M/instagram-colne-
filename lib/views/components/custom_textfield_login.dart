@@ -5,6 +5,7 @@ class CustomTextFieldLogin extends StatelessWidget {
   final String hint;
   final bool isPassword;
   final bool showPassword;
+  final bool showEye;
   final Function onclickEye, onChanged;
   final TextEditingController controller;
   final TextInputType textInputType;
@@ -14,7 +15,7 @@ class CustomTextFieldLogin extends StatelessWidget {
         this.isPassword = false,
         this.showPassword = false,
         this.onclickEye,
-        this.onChanged, this.textInputType = TextInputType.text, this.controller})
+        this.onChanged, this.textInputType = TextInputType.text, this.controller, this.showEye = true})
       : super(key: key);
 
   @override
@@ -43,7 +44,7 @@ class CustomTextFieldLogin extends StatelessWidget {
               cursorColor: Colors.black,
             ),
           ),
-          isPassword
+          isPassword && showEye
               ? GestureDetector(
             onTap: onclickEye,
             child: showPassword

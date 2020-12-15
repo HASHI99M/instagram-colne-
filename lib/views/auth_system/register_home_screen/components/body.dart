@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:instagram/size_config.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/register_screen/register_screen.dart';
 import 'package:instagram/views/components/or_widget.dart';
@@ -12,6 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
+  double defaultSize = SizeConfig.defaultSize;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,16 +24,16 @@ class _BodyState extends State<Body> {
           Center(
             child: Image.asset(
               'assets/icons/logo.png',
-              width: 250,
-              height: 100,
+              width: defaultSize * 25,
+              height: defaultSize * 6,
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(height: 100,),
+          SizedBox(height: defaultSize * 10,),
           FacebookLoginButton(onClick: (){},),
-          SizedBox(height: 15,),
+          SizedBox(height: defaultSize * 1.5,),
           OR(),
-          SizedBox(height: 15,),
+          SizedBox(height: defaultSize * 1.5,),
           GestureDetector(
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(),));
