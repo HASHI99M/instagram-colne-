@@ -66,5 +66,7 @@
   "ok" : "OK",
   "welcome" : "welcome to INSTAGRAM.",
   "welcome_note": "You can search for people to follow and start sharing photos. You can change your username at any time",
-  "welcome_note2":"By clicking on \"Next\", you agree to our terms, data policy and cookie policy"
+  "welcome_note2":"By clicking on \"Next\", you agree to our terms, data policy and cookie policy",
+  "user_name_error1": "the user",
+  "user_name_error2": "not available ."
 }

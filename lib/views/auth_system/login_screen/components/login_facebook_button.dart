@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram/ultimate/helpers.dart';
 class LoginFacebookButton extends StatelessWidget {
   final Function onClick;
@@ -13,7 +14,8 @@ class LoginFacebookButton extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.face , color: Colors.blue,size: 28,),
+            // Icon(Icons.face , color: Colors.blue,size: 28,),
+            Image.asset('assets/icons/ic_facebook.png' , width: 25,),
             SizedBox(width: 5,),
             Text(getTranslated(context, 'login_facebook') , style: TextStyle(color: Colors.blue , fontWeight: FontWeight.bold , fontSize: 15),)
           ],

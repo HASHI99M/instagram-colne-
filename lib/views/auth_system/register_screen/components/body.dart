@@ -15,7 +15,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  double defaultSize = SizeConfig.defaultSize;
+  double defaultSize = SizeConfig.defaultSize , defaultSize2 = SizeConfig.defaultSize2;
   bool isPhone = true;
   bool disableBtnPhone = true;
   bool disableBtnEmail = true;
@@ -42,20 +42,22 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: defaultSize * 2),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(child: ImageProfile()),
-          SizedBox(
-            height: defaultSize * 2,
-          ),
-          switchTab(),
-          SizedBox(
-            height: defaultSize * 1.5,
-          ),
-          isPhone ? contentPhone() : contentEmail()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(height: defaultSize2*8,),
+            Center(child: ImageProfile()),
+            SizedBox(
+              height: defaultSize2,
+            ),
+            switchTab(),
+            SizedBox(
+              height: defaultSize2,
+            ),
+            isPhone ? contentPhone() : contentEmail()
+          ],
+        ),
       ),
     );
   }
@@ -77,7 +79,7 @@ class _BodyState extends State<Body> {
                 alignment: Alignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: defaultSize * 1.6),
+                    padding: EdgeInsets.symmetric(vertical:  defaultSize2*.8),
                     child: Text(getTranslated(context, 'phone'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -108,7 +110,7 @@ class _BodyState extends State<Body> {
                 alignment: Alignment.center,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(vertical: defaultSize * 1.6),
+                    padding: EdgeInsets.symmetric(vertical: defaultSize2*.8),
                     child: Text(getTranslated(context, 'email'),
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
@@ -160,7 +162,7 @@ class _BodyState extends State<Body> {
           },
         ),
         SizedBox(
-          height: defaultSize * 2,
+          height: defaultSize2,
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),
@@ -195,7 +197,7 @@ class _BodyState extends State<Body> {
           },
         ),
         SizedBox(
-          height: defaultSize,
+          height: defaultSize2*.5,
         ),
         Text(
           getTranslated(context, 'helper_txt'),
@@ -203,7 +205,7 @@ class _BodyState extends State<Body> {
           style: TextStyle(color: Colors.grey),
         ),
         SizedBox(
-          height: defaultSize * 1.5,
+          height: defaultSize2 ,
         ),
         CustomButtonLogin(
           text: getTranslated(context, 'next'),

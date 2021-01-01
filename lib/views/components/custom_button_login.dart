@@ -16,7 +16,7 @@ class CustomButtonLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: disable ? null : onClick,
+      onTap: disable || loading ? null : onClick,
       child: Container(
         alignment: Alignment.center,
         width: double.infinity,
@@ -31,7 +31,7 @@ class CustomButtonLogin extends StatelessWidget {
         ),
         child: loading
             ? SizedBox(
-                height: 15, width: 15, child: CircularProgressIndicator(strokeWidth: 2))
+                height: 15, width: 15, child: Theme(data: ThemeData(accentColor: Colors.white) ,child: CircularProgressIndicator(strokeWidth: 2 )))
             : Text(
                 text,
                 style: TextStyle(

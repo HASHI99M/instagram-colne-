@@ -14,12 +14,13 @@ class SwitchLangWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => onClick(context),
       child: Container(
+        alignment: Alignment.center,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               AppLocale.langCode == 'ar' ? 'العربية' : 'English',
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey ,fontSize: 20 , fontWeight: FontWeight.bold),
             ),
             Icon(
               Icons.arrow_drop_down,

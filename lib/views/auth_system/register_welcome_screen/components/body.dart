@@ -12,7 +12,8 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  double defaultSize = SizeConfig.defaultSize;
+  double defaultSize = SizeConfig.defaultSize ,defaultSize2 = SizeConfig.defaultSize2 ;
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,12 @@ class _BodyState extends State<Body> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(getTranslated(context, 'welcome') +"\n ${Provider.of<Auth>(context).username}",textAlign: TextAlign.center ,  style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold),),
-              SizedBox(height: defaultSize * .5,),
+              SizedBox(height: defaultSize2 * .25,),
               Padding(
                 padding:  EdgeInsets.symmetric(horizontal: defaultSize),
                 child: Text(getTranslated(context, 'welcome_note') ,textAlign: TextAlign.center , style: TextStyle(fontSize: 15, color: Colors.grey),),
               ),
-              SizedBox(height: defaultSize*2,),
+              SizedBox(height: defaultSize2,),
               CustomButtonLogin(
                 disable: false,
                 text: getTranslated(context, 'next'),
@@ -45,7 +46,7 @@ class _BodyState extends State<Body> {
             ],
           ),
           Align(alignment: Alignment.bottomCenter,child: Padding(
-            padding:  EdgeInsets.symmetric(vertical :defaultSize*2 , horizontal: defaultSize * .1),
+            padding:  EdgeInsets.symmetric(vertical :defaultSize2 , horizontal: defaultSize * .1),
             child: Text(getTranslated(context, 'welcome_note2') , textAlign: TextAlign.center, style: TextStyle(color: Colors.grey , fontWeight: FontWeight.bold),),
           ))
         ],

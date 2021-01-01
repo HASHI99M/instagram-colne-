@@ -7,6 +7,4 @@ class Lang extends ChangeNotifier{
    this.langCode = langCode;
    notifyListeners();
  }
-
-
 }

@@ -13,7 +13,7 @@ class Body extends StatefulWidget {
 }
 
 class _BodyState extends State<Body> {
-  double defaultSize = SizeConfig.defaultSize;
+  double defaultSize = SizeConfig.defaultSize , defaultSize2 = SizeConfig.defaultSize2;
   bool disableBtn = true;
   String code;
 
@@ -22,30 +22,33 @@ class _BodyState extends State<Body> {
     final proAuth = Provider.of<Auth>(context);
     return Container(
       padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
-      child: Column(
-        children: [
-          Text(getTranslated(context, 'enter_code') , style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold ),),
-          SizedBox(height: defaultSize*1.5,),
-          Padding(
-            padding:  EdgeInsets.symmetric(horizontal: defaultSize),
-            child: Text('${getTranslated(context, 'sent_to_code')} ${proAuth.email ?? proAuth.phone} .' , textAlign: TextAlign.center,),
-          ),
-          SizedBox(height: defaultSize*1.5,),
-          CustomTextFieldLogin(hint: getTranslated(context, 'conf_code'),textInputType: TextInputType.number,onChanged: (value){
-            if(value.toString().length == 6 ){
-              setState(() {
-                disableBtn = false;
-                code = value.toString();
-              });
-            }else{
-              setState(() {
-                disableBtn = true;
-              });
-            }
-          },),
-          SizedBox(height: defaultSize*1.5,),
-          CustomButtonLogin(text: getTranslated(context, 'next'),disable: disableBtn,onClick:()=> _checkCode(context),)
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: defaultSize2*3.8,),
+            Text(getTranslated(context, 'enter_code') , style: TextStyle(fontSize: 16 , fontWeight: FontWeight.bold ),),
+            SizedBox(height: defaultSize2 * .8,),
+            Padding(
+              padding:  EdgeInsets.symmetric(horizontal: defaultSize),
+              child: Text('${getTranslated(context, 'sent_to_code')} ${proAuth.email ?? proAuth.phone} .' , textAlign: TextAlign.center,),
+            ),
+            SizedBox(height: defaultSize2*.8,),
+            CustomTextFieldLogin(hint: getTranslated(context, 'conf_code'),textInputType: TextInputType.number,onChanged: (value){
+              if(value.toString().length == 6 ){
+                setState(() {
+                  disableBtn = false;
+                  code = value.toString();
+                });
+              }else{
+                setState(() {
+                  disableBtn = true;
+                });
+              }
+            },),
+            SizedBox(height: defaultSize*1.5,),
+            CustomButtonLogin(text: getTranslated(context, 'next'),disable: disableBtn,onClick:()=> _checkCode(context),)
+          ],
+        ),
       ),
     );
   }

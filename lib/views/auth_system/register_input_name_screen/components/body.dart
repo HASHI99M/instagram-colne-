@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/provider/auth.dart';
+import 'package:instagram/size_config.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/register_input_birthday_screen/register_input_birthday_screen.dart';
 import 'package:instagram/views/components/custom_button_login.dart';
@@ -13,21 +14,23 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   bool savePass = false , disableBtn = true;
+  double defaultSize = SizeConfig.defaultSize,defaultSize2 = SizeConfig.defaultSize2;
   String name , pass;
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
+          SizedBox(height: defaultSize2*3.8,),
           Text(
             getTranslated(context, 'name_and_password'),
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
           ),
           SizedBox(
-            height: 20,
+            height: defaultSize2,
           ),
           CustomTextFieldLogin(
             onChanged: (value){
@@ -43,7 +46,7 @@ class _BodyState extends State<Body> {
             hint: getTranslated(context, 'full_name'),
           ),
           SizedBox(
-            height: 20,
+            height: defaultSize2,
           ),
           CustomTextFieldLogin(
             onChanged: (value){
@@ -63,7 +66,7 @@ class _BodyState extends State<Body> {
             textInputType: TextInputType.visiblePassword,
           ),
           SizedBox(
-            height: 5,
+            height: defaultSize2*.25,
           ),
           Container(
             child: Row(
@@ -86,7 +89,7 @@ class _BodyState extends State<Body> {
             ),
           ),
           SizedBox(
-            height: 5,
+            height: defaultSize2*.25,
           ),
           CustomButtonLogin(
             text: getTranslated(context, 'continue_and_sync'),
@@ -94,7 +97,7 @@ class _BodyState extends State<Body> {
             disable: disableBtn,
           ),
           SizedBox(
-            height: 10,
+            height: defaultSize2*.5,
           ),
           FlatButton(
             onPressed: disableBtn ?  null : _clickWithoutSync,

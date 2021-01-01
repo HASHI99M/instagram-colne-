@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:instagram/provider/auth.dart';
+import 'package:instagram/size_config.dart';
 import 'package:instagram/ultimate/helpers.dart';
 import 'package:instagram/views/auth_system/register_input_birthday_screen/components/birthday_box.dart';
 import 'package:instagram/views/auth_system/register_welcome_screen/register_welcome_screen.dart';
@@ -16,43 +17,43 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   String birthday;
   int yearsOld = 0;
-
+  double defaultSize = SizeConfig.defaultSize ,defaultSize2 = SizeConfig.defaultSize2;
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(top: 40),
+        padding: EdgeInsets.only(top: defaultSize2*2),
         child: Column(
           children: [
             Center(child: SvgPicture.asset('assets/icons/ic_birthday.svg')),
             SizedBox(
-              height: 20,
+              height: defaultSize2,
             ),
             Text(
               getTranslated(context, 'add_birthday'),
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 12,
+              height: defaultSize2*.6,
             ),
             Text(
               getTranslated(context, 'note_birthday'),
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 20,
+              height: defaultSize2,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
               child: BirthdayBox(
                 birthday: birthday ?? 'December 10 , 2019',
                 yearsOld: yearsOld.toString(),
               ),
             ),
             SizedBox(
-              height: 20,
+              height: defaultSize2,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
               child: CustomButtonLogin(
                 text: getTranslated(context, 'pick_birthday'),
                 disable: false,
@@ -62,10 +63,10 @@ class _BodyState extends State<Body> {
               ),
             ),
             SizedBox(
-              height: 20,
+              height: defaultSize2,
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
               child: CustomButtonLogin(
                 text: getTranslated(context, 'next'),
                 disable: !(yearsOld >= 9),
@@ -79,7 +80,7 @@ class _BodyState extends State<Body> {
         ));
   }
 
-  pickBirthday(BuildContext context) {
+  void pickBirthday(BuildContext context) {
     String month;
     showDatePicker(
             context: context,

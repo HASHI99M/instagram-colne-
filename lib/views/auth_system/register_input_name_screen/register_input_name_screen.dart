@@ -8,10 +8,7 @@ class RegisterInputNameScreen extends StatelessWidget {
     return WillPopScope(
       onWillPop:() =>  _onWillPop(context),
       child: Scaffold(
-        appBar: AppBar(
-          leading: Text(''),
-          elevation: 0,
-        ),
+
         bottomNavigationBar: Container(
           padding: EdgeInsets.only(left: 20 , right: 20 , bottom: 30),
           child: Text(

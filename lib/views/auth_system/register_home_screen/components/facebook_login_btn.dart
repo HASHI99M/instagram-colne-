@@ -20,8 +20,8 @@ class FacebookLoginButton extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.face , color: Colors.white),
-              SizedBox(width: 3,),
+              Image.asset('assets/icons/ic_facebook.png' , width: 25,),
+              SizedBox(width: 5,),
               Text(getTranslated(context, 'facebook_btn') , style: TextStyle(color: Colors.white),),
 
 
