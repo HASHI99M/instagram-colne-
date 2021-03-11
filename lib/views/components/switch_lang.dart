@@ -20,7 +20,7 @@ class SwitchLangWidget extends StatelessWidget {
           children: [
             Text(
               AppLocale.langCode == 'ar' ? 'العربية' : 'English',
-              style: TextStyle(color: Colors.grey ,fontSize: 20 , fontWeight: FontWeight.bold),
+              style: TextStyle(color: Colors.grey ,fontSize: 18 , fontWeight: FontWeight.bold),
             ),
             Icon(
               Icons.arrow_drop_down,

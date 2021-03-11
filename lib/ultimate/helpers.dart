@@ -85,8 +85,8 @@ addPhotoDialog(BuildContext context,
     builder: (context) => Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
-        width: 200,
-        height: 200,
+        width: SizeConfig.defaultSize * 20,
+        height: SizeConfig.defaultSize * 20,
         child: Column(
           children: [
             Padding(

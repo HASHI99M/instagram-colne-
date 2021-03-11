@@ -6,6 +6,7 @@ import 'package:instagram/views/auth_system/register_input_birthday_screen/regis
 import 'package:instagram/views/components/custom_button_login.dart';
 import 'package:instagram/views/components/custom_textfield_login.dart';
 import 'package:provider/provider.dart';
+import 'package:provider/single_child_widget.dart';
 
 class Body extends StatefulWidget {
   @override
@@ -18,95 +19,97 @@ class _BodyState extends State<Body> {
   String name , pass;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: defaultSize2*3.8,),
-          Text(
-            getTranslated(context, 'name_and_password'),
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-          ),
-          SizedBox(
-            height: defaultSize2,
-          ),
-          CustomTextFieldLogin(
-            onChanged: (value){
-              setState(() {
-                name = value;
-                if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
-                  disableBtn =false;
-                }else{
-                  disableBtn = true;
-                }
-              });
-            },
-            hint: getTranslated(context, 'full_name'),
-          ),
-          SizedBox(
-            height: defaultSize2,
-          ),
-          CustomTextFieldLogin(
-            onChanged: (value){
-              setState(() {
-                pass = value;
-                if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
-                  disableBtn =false;
-                }else{
-                  disableBtn = true;
-                }
-              });
-            },
-            showEye: false,
-            hint: getTranslated(context, 'hint_password'),
-            isPassword: true,
-            showPassword: true,
-            textInputType: TextInputType.visiblePassword,
-          ),
-          SizedBox(
-            height: defaultSize2*.25,
-          ),
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Checkbox(
-                  value: savePass,
-                  onChanged: (value) {
-                    setState(() {
-                      savePass = value;
-                    });
-                  },
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                ),
-                Text(
-                  getTranslated(context, 'save_pass'),
-                  style: TextStyle(color: Colors.grey),
-                )
-              ],
+    return SingleChildScrollView(
+      child: Container(
+        width: double.infinity,
+        padding: EdgeInsets.symmetric(horizontal: defaultSize*2),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: defaultSize2*3.8,),
+            Text(
+              getTranslated(context, 'name_and_password'),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
             ),
-          ),
-          SizedBox(
-            height: defaultSize2*.25,
-          ),
-          CustomButtonLogin(
-            text: getTranslated(context, 'continue_and_sync'),
-            onClick: _clickSync,
-            disable: disableBtn,
-          ),
-          SizedBox(
-            height: defaultSize2*.5,
-          ),
-          FlatButton(
-            onPressed: disableBtn ?  null : _clickWithoutSync,
-            child: Text(
-              getTranslated(context, 'continue_without_sync'),
-              style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+            SizedBox(
+              height: defaultSize2,
             ),
-          )
-        ],
+            CustomTextFieldLogin(
+              onChanged: (value){
+                setState(() {
+                  name = value;
+                  if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
+                    disableBtn =false;
+                  }else{
+                    disableBtn = true;
+                  }
+                });
+              },
+              hint: getTranslated(context, 'full_name'),
+            ),
+            SizedBox(
+              height: defaultSize2,
+            ),
+            CustomTextFieldLogin(
+              onChanged: (value){
+                setState(() {
+                  pass = value;
+                  if(name.isNotEmpty && pass.isNotEmpty && pass.length >= 6){
+                    disableBtn =false;
+                  }else{
+                    disableBtn = true;
+                  }
+                });
+              },
+              showEye: false,
+              hint: getTranslated(context, 'hint_password'),
+              isPassword: true,
+              showPassword: true,
+              textInputType: TextInputType.visiblePassword,
+            ),
+            SizedBox(
+              height: defaultSize2*.25,
+            ),
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Checkbox(
+                    value: savePass,
+                    onChanged: (value) {
+                      setState(() {
+                        savePass = value;
+                      });
+                    },
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  Text(
+                    getTranslated(context, 'save_pass'),
+                    style: TextStyle(color: Colors.grey),
+                  )
+                ],
+              ),
+            ),
+            SizedBox(
+              height: defaultSize2*.25,
+            ),
+            CustomButtonLogin(
+              text: getTranslated(context, 'continue_and_sync'),
+              onClick: _clickSync,
+              disable: disableBtn,
+            ),
+            SizedBox(
+              height: defaultSize2*.5,
+            ),
+            FlatButton(
+              onPressed: disableBtn ?  null : _clickWithoutSync,
+              child: Text(
+                getTranslated(context, 'continue_without_sync'),
+                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
